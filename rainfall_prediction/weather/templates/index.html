@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта прогнозу опадів</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <h1>Прогноз опадів на карті</h1>
+    <div id="map" style="height: 600px;"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        var map = L.map('map').setView([49.0, 32.0], 6); 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,  
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var rainfallData = {
+            'Kyiv': 120,  
+            'Lviv': 95,
+            'Odessa': 80
+        };
+
+
+        for (var city in rainfallData) {
+            var precipitation = rainfallData[city];
+            var color = precipitation > 100 ? 'blue' : 'green'; 
+            L.circle([50.45, 30.52], {  
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.5,
+                radius: precipitation * 100 
+            }).addTo(map).bindPopup(city + ": " + precipitation + " мм опадів");
+        }
+    </script>
+</body>
+</html>
