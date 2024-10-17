@@ -4,3 +4,10 @@ h1{
     text-align: center;
     margin-top: 20px;
 }
+
+#map {
+    height: 500px; 
+    width: 77%;   
+    align-items: center;
+    margin-left: 160px;
+}
