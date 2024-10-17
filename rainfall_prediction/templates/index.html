@@ -1,19 +1,18 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainfall Prediction</title>
-
-    <!-- Підключення CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Welcome to the Rainfall Prediction Website!</h1>
-
-    <!-- Підключення JavaScript -->
-    <script src="{% static 'js/your_script.js' %}"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rainfall Prediction</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>Welcome to the Rainfall Prediction Website!</h1>
+        <div id="weather-container"></div>
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="{% static 'js/weather.js' %}"></script>
+    </body>    
 </html>
