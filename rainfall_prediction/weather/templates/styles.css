@@ -6,8 +6,8 @@
     top: 0;
     left: 0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* Вирівнювання по вертикалі */
+    justify-content: flex-start; /* Вирівнюємо всі елементи вліво */
     z-index: 10;
     padding: 0 20px;
 }
@@ -19,6 +19,37 @@
     font-size: 24px;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: normal;
+    margin-right: 150px; /* Відступ між заголовком і навігацією */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Відстань між пунктами меню */
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    position: relative;
+}
+
+nav ul li:not(:last-child)::after {
+    content: ''; /* Додаємо лінію після кожного пункту, окрім останнього */
+    position: absolute;
+    right: -25px; /* Розташування лінії */
+    height: 100%;
+    width: 1px;
+    background-color: white; /* Колір лінії */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .search-container {
@@ -26,11 +57,8 @@
     align-items: center;
     background-color: white;
     padding: 5px 10px;
-    position: absolute;
-    right: 90px;
-    top: 15px;
-    border-radius: 0px;
-    box-shadow: none;
+    border-radius: 4px;
+    margin-left: 250px; /* Відступ поля пошуку від навігації */
 }
 
 .search-input {
@@ -40,7 +68,7 @@
     padding: 5px;
     background-color: white;
     color: black;
-    width: 150px; 
+    width: 150px;
 }
 
 .search-icon {
@@ -51,17 +79,18 @@
 
 #map {
     position: fixed;
-    top: 70px; 
+    top: 70px; /* Відступ після чорного прямокутника */
     left: 0;
-    width: 100%; 
-    height: calc(100vh - 70px); 
+    width: 100%;
+    height: calc(100vh - 70px); /* Щоб карта займала весь доступний простір */
     z-index: 1;
 }
 
 .leaflet-control-zoom {
     position: fixed;
-    left: 10px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    z-index: 1000; 
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
 }
+
