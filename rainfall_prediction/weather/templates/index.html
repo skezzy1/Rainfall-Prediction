@@ -11,13 +11,21 @@
 <body>
     <div class="black-rectangle">
         <h1 class="title">Rainfall Prediction</h1> 
+        <nav>
+            <ul>
+                <li><a href="#">Precipitation Map</a></li>
+                <li><a href="#">Safety Advice</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Find a city">
             <span class="search-icon">&#128269;</span> 
         </div>
     </div>
 
-    <div id="map"></div> 
+    <div id="map"></div>
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([49.0, 32.0], 6); 
